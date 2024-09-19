@@ -152,6 +152,8 @@ def csvexport(modeladmin, request, queryset):
         csv_format = dict()
         csv_format['delimiter'] = format_form.cleaned_data['delimiter']
         csv_format['escapechar'] = format_form.cleaned_data['escapechar']
+        if csv_format['escapechar'] == '':
+            csv_format['escapechar'] = None
         csv_format['quotechar'] = format_form.cleaned_data['quotechar']
         csv_format['doublequote'] = format_form.cleaned_data['doublequote']
         csv_format['quoting'] = getattr(csv, format_form.cleaned_data['quoting'])
